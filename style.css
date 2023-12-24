@@ -30,11 +30,11 @@
         
         
         .topbar {
-            background: rgb(162, 202, 255);
+            background: rgb(57, 143, 255);
             height: 40px; 
             width: 100%;
             position: fixed; 
-            top: 0;
+            bottom: 0;
             left: 0;
             z-index: 1000; 
             display: flex;
@@ -43,7 +43,7 @@
         
         .topbar p {
             margin: 0;
-            padding: 10px;
+            padding: 5px;
             color: white;
             font-weight: bold;
         }
@@ -53,7 +53,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            margin-left: 10px; 
+            margin-left: -5px; 
             transition: all 0.3s ease;
         }
         button {
@@ -111,52 +111,49 @@
             height: 100%;
             object-fit: contain;
           }
-          input[type="text"] {
+          #searchInput {
             outline: none;
             position: absolute;
-            top: 8%;
+            top: 2%;
+            color: red; /* Change this color to your preferred text color */
             border-color: transparent;
-            background-color: #fff0;
-            color: rgba(0,0,0,100);
+            background-color: transparent;
             margin: 10px;
-            padding: 5px;
             z-index: 1000;
             width: 600px;
             transition: all 0.5s ease;
-          }
-          input:hover {
-              transform: scale(1.2);
-          }
-          input:focus {
-              transform: scale(1.2);
-          }
+        }
+        
+          #searchInput:hover,
+            #searchInput:focus {
+                color: blue; /* Change this color to your preferred text color on hover/focus */
+                transform: scale(1.2);
+                /* Add any other hover/focus styles you want */
+            }
+
           .text-container {
             position: absolute;
             font-size: 50px;
             top: 5%;
             left: 50%;
             transform: translateX(-50%);
-            color: #003163; /* Very deep blue color */
-        }
-        .welcome-text {
-            font-size: smaller;
-            margin-top: 5px;
-            transition: all 0.3s ease;
+      
         }
         p {
             transition: all 0.3s ease;
+            background: linear-gradient(#3485ff, #000f94);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         p:hover {
             transform: scale(1.2);
         }
-        .welcome-text:hover {
-            transform: scale(1.2);
-        }
+    
         .iframe-container2 iframe {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: 20%;
+            top: 40%;
             width: 70%;
             height: 50%; 
             border: none;
@@ -168,6 +165,7 @@
         h1 {
             transition: all 0.5s ease;
             font-size: 30px;
+            color: #fff;
             position: absolute;
         }
         h1:hover {
@@ -175,7 +173,7 @@
         }
         #myContainer {
             position: absolute;
-            top: 10%; 
+            top: 4%; 
             width: 100%;
             height: calc(100% - 40px);
             display: flex;
@@ -188,7 +186,7 @@
         }
         ::-webkit-scrollbar {
             width: 7.5px;
-            background: #3ecfff;
+            background: #093e50;
           }
           
           ::-webkit-scrollbar-track {
@@ -197,6 +195,6 @@
           }
            
           ::-webkit-scrollbar-thumb {
-            background: #0d8bb2; 
+            background: #3db8dd; 
             border-radius: 10px;
           }

@@ -8,8 +8,8 @@ function createButton(text, imageUrl,linkUrl) {
     }
     image.style.objectFit = "cover";
     var buttonText = document.createElement('span');
-    button.style.height = "140px"
-    button.style.width = "140px"
+    button.style.height = "120px"
+    button.style.width = "120px"
     button.style.margin = "7px"
     buttonText.style.zIndex = "10000";
     buttonText.style.display = "inline"
@@ -112,7 +112,9 @@ function filterButtons() {
   
 
   const searchInput = document.getElementById('searchInput');
+  if (searchInput != null) {
   searchInput.addEventListener('input', filterButtons);
+  }
 
   
     
