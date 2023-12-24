@@ -30,7 +30,7 @@
         
         
         .topbar {
-            background: rgb(57, 143, 255);
+            background: /*rgb(57, 143, 255)*/ transparent;
             height: 40px; 
             width: 100%;
             position: fixed; 
@@ -60,6 +60,7 @@
             transition: all 0.3s ease;
         }
         button:hover {
+            background: #bbbb;
             transform: scale(1.1);
         }
         .clock {
@@ -69,20 +70,16 @@
             left: 50%;
             transform: translate(-50%);
             padding: 20px;
-            border-radius: 10px;
+            
         }
-        #iframeContainer {
-            margin-top: 5px;
-         }
         #dynamicIframe {
-            top: 1.5%;
-            left: -1%;
-            overflow-y: hidden;
-            overflow-x: hidden;
-            border: 0px;
-            position: absolute;
-            width: 102%;
-            height: 48%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 40px); /* subtract 40px for the bottom */
+            overflow: hidden;
+            border: transparent;
         }
         button {
             width: 60px;
