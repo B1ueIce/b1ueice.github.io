@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/google.ico" type="image/x-icon">
+    <title>Google</title>
+    <style>   
+    body {
+      size: 100vh;
+      background: linear-gradient(to bottom, #8bf7ff, #c7f2ff);
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: bold;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column; 
+  }</style>
+</head>
+<body>
+    <script>
+    function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const meridiem = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12 || 12; // Convert 24-hour time to 12-hour time
+
+        const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem}`;
+        
+        document.getElementById('clock').innerHTML = timeDisplay;
+        }
+
+        
+        setInterval(updateClock, 100); 
+
+      
+       
+       document.addEventListener('DOMContentLoaded', function() {
+      var currentURL = window.location.href;
+
+      
+      var queryString = currentURL.substring(currentURL.lastIndexOf('=') + 1);
+
+      
+      if (queryString) {
+        var iframe = document.getElementById('dynamicIframe');
+        iframe.src = queryString;
+      } else {
+        console.log('No valid URL found in the query string.');
+      }
+    });
+      </script>
+      <div id="iframeContainer">
+        <iframe id="dynamicIframe" src=""></iframe>
+      </div>
+    <div class="topbar">
+       
+        <button onclick="location.href='main.html'"">
+            <img src="icons/home.png" height="40">
+        </button>
+        <button onclick="location.href='apps.html'"">
+            <img src="icons/apps.png" height="40">
+        </button>
+        <button onclick="location.href='games.html'"">
+            <img src="icons/games.png" height="40">
+        </button>
+        <div class="clock" id="clock"></div>
+    </div>
+</body>
+</html>
