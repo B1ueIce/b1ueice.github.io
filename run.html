@@ -29,7 +29,7 @@
       var currentURL = window.location.href;
 
       
-      var queryString = currentURL.substring(currentURL.lastIndexOf('=') + 1);
+      var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
 
       
       if (queryString) {

