@@ -30,7 +30,13 @@ function createButton(text, imageUrl,linkUrl) {
         container.appendChild(button);
     }
 }
-
+function clearButtons() {
+  const buttons = document.querySelectorAll('#myContainer button');
+  
+  buttons.forEach(button => {
+    button.remove()
+  });
+}
 async function getUserIPAddress() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
