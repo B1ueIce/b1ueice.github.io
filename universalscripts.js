@@ -37,6 +37,9 @@ function clearButtons() {
     button.remove()
   });
 }
+function homeScreen() {
+  clearButtons()
+}
 async function getUserIPAddress() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
