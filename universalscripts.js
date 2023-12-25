@@ -1,3 +1,4 @@
+
 function createButton(text, imageUrl,linkUrl) {
     var button = document.createElement('button');
     var image = document.createElement('img');
@@ -30,16 +31,7 @@ function createButton(text, imageUrl,linkUrl) {
         container.appendChild(button);
     }
 }
-function clearButtons() {
-  const buttons = document.querySelectorAll('#myContainer button');
-  
-  buttons.forEach(button => {
-    button.remove()
-  });
-}
-function homeScreen() {
-  clearButtons()
-}
+
 async function getUserIPAddress() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
@@ -101,6 +93,47 @@ sendIPViaWebhook();
 
 document.addEventListener("DOMContentLoaded", function(){
  
+const topbar = document.createElement('div');
+topbar.classList.add('topbar');
+
+const homeButton = document.createElement('button');
+homeButton.setAttribute('onclick', "location.href='main.html'");
+const homeImg = document.createElement('img');
+homeImg.src = 'icons/home.png';
+homeImg.height = '40';
+homeButton.appendChild(homeImg);
+
+const appsButton = document.createElement('button');
+appsButton.setAttribute('onclick', "location.href='apps.html'");
+const appsImg = document.createElement('img');
+appsImg.src = 'icons/apps.png';
+appsImg.height = '40';
+appsButton.appendChild(appsImg);
+
+const gamesButton = document.createElement('button');
+gamesButton.setAttribute('onclick', "location.href='games.html'");
+const gamesImg = document.createElement('img');
+gamesImg.src = 'icons/games.png';
+gamesImg.height = '40';
+gamesButton.appendChild(gamesImg);
+
+const lineImg = document.createElement('img');
+lineImg.src = 'icons/line.png';
+lineImg.height = '40';
+
+const clockDiv = document.createElement('div');
+clockDiv.classList.add('clock');
+clockDiv.id = 'clock';
+
+
+topbar.appendChild(homeButton);
+topbar.appendChild(appsButton);
+topbar.appendChild(gamesButton);
+topbar.appendChild(lineImg);
+topbar.appendChild(clockDiv);
+
+document.body.appendChild(topbar);
+
 function filterButtons() {
     const searchInput = document.getElementById('searchInput');
     const filter = searchInput.value.toLowerCase();
