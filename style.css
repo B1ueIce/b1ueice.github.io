@@ -67,13 +67,12 @@
             transform: scale(1.1);
         }
         .clock {
-            
+            text-wrap: nowrap;
             font-size: 22px;
             color: #fff;
             position: fixed;
             left: 50%;
             transform: translate(-50%);
-            padding: 20px;
             
         }
         #dynamicIframe {
