@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4100118411197601"
-     crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
         new Crate({
             server: '1184246690761424987', 
@@ -11,84 +9,12 @@
     </script>
     <link rel="icon" href="icons/google.ico" type="image/x-icon">
     <title>Google</title>
-    <style>
-           @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-        body {
-            background: linear-gradient(to bottom, #8bf7ff, #c7f2ff);
-            height: 200vh;
-            font-family: 'Comfortaa', sans-serif;
-            font-weight: bold;
-            display: flex;
-            position: relative;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            flex-direction: column; 
-        }
-        .topbar {
-            background: rgb(162, 202, 255);
-            height: 40px; 
-            width: 100%;
-            position: fixed; 
-            top: 0;
-            left: 0;
-            z-index: 1000; 
-            display: flex;
-            align-items: center; 
-        }
-        
-        .topbar p {
-            margin: 0;
-            padding: 10px;
-            color: white;
-            font-weight: bold;
-        }
-
-       
-        .topbar button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin-left: 10px; 
-            transition: all 0.3s ease;
-        }
-        .topbar button:hover {
-            transform: scale(1.1);
-        }
-        .clock {
-            font-size: 22px;
-            color: #fff;
-            position: fixed;
-            left: 50%;
-            transform: translate(-50%);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-    </style>
+    <script src="universalscripts.js"></script>
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
-    <script>
-    function updateClock() {
-        const now = new Date();
-        let hours = now.getHours();
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        const seconds = now.getSeconds().toString().padStart(2, '0');
-        const meridiem = hours >= 12 ? 'PM' : 'AM';
-        
-        hours = hours % 12 || 12; // Convert 24-hour time to 12-hour time
 
-        const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem}`;
-        
-        document.getElementById('clock').innerHTML = timeDisplay;
-        }
-
-        
-        setInterval(updateClock, 100); 
-
-
-      </script>
     <div class="topbar">
        
         <button onclick="location.href='main.html'"">
