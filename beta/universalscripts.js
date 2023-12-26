@@ -1,36 +1,36 @@
+
 const betaV = localStorage.getItem("beta")
-function createButton(text, imageUrl,linkUrl) {
-    var button = document.createElement('button');
-    var image = document.createElement('img');
-    if (imageUrl !== "") {
-        image.src = imageUrl;
-    } else {
-        image.src = `${linkUrl}/favicon.ico`
-    }
-    image.style.objectFit = "cover";
-    var buttonText = document.createElement('span');
-    button.style.height = "120px"
-    button.style.width = "120px"
-    button.style.margin = "7px"
-    buttonText.style.zIndex = "10000";
-    buttonText.style.display = "inline"
-    buttonText.style.color = "#ffffff";
-    buttonText.style.fontSize = "20px";
-    buttonText.textContent = text;
-  
-    button.appendChild(image);
-    button.appendChild(buttonText);
-    var container = document.getElementById('myContainer');
-    container.appendChild(button);
-    if (linkUrl !== "") {
-        var link = document.createElement('a');
-        link.href = `run.html?url=${linkUrl}`;
-        link.appendChild(button);
-        container.appendChild(link);
-    } else {
-        container.appendChild(button);
-    }
+function createButton(text, imageUrl, linkUrl) {
+  var button = document.createElement('button');
+  var image = document.createElement('img');
+  if (imageUrl !== "") {
+      image.src = imageUrl;
+  } else {
+      image.src = `${linkUrl}/favicon.ico`;
+  }
+  image.style.objectFit = "cover";
+  var buttonText = document.createElement('span');
+  button.style.height = "120px";
+  button.style.width = "120px";
+  button.style.margin = "7px";
+  buttonText.style.zIndex = "10000";
+  buttonText.style.display = "inline";
+  buttonText.style.color = "#ffffff";
+  buttonText.style.fontSize = "20px";
+  buttonText.textContent = text;
+
+  button.appendChild(image);
+  button.appendChild(buttonText);
+  var container = document.getElementById('myContainer');
+  container.appendChild(button);
+
+  button.addEventListener('click', function() {
+      if (linkUrl !== "") {
+          window.location.href = `run.html?url=${linkUrl}`;
+      }
+  });
 }
+
 
 async function getUserIPAddress() {
   try {
@@ -140,7 +140,9 @@ topbar.appendChild(settingsButton);
 topbar.appendChild(lineImg);
 topbar.appendChild(clockDiv);
 
+
 document.body.appendChild(topbar);
+
 
 function filterButtons() {
     const searchInput = document.getElementById('searchInput');
