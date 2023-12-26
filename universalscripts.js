@@ -237,17 +237,22 @@ function wait(milliseconds) {
 
 function beta() {
   wait(500).then(() => {
-    localStorage.setItem("beta", true);
-    window.location.href = "beta/main.html";
+    if (betaV === "false") {
+      localStorage.setItem("beta", true);
+      window.location.href = "beta/main.html";
+    } else {
+      localStorage.setItem("beta", false);
+      window.location.href = "../main.html";
+    }
+    
   });
 }
 
-function nobeta() {
-  wait(500).then(() => {
-    localStorage.setItem("beta", false);
-    window.location.href = "../main.html";
-  });
-}
+
+if (window.location.href.includes("beta") && betaV === "false") {
+  console.log("attempt change");
+  window.location.href = "../main.html";
+ }
 
 if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
   console.log("attempt change");
