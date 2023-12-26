@@ -212,7 +212,7 @@
             border-radius: 10px;
           }
          
-        .switch {
+          .switch {
             position: absolute;
             left:7%;
             top: 15%;
@@ -263,4 +263,5 @@
         input:checked + .slider:before {
             transform: translateX(32px);
         }
+        
         

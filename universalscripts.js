@@ -1,4 +1,4 @@
-
+const betaV = localStorage.getItem("beta")
 function createButton(text, imageUrl,linkUrl) {
     var button = document.createElement('button');
     var image = document.createElement('img');
@@ -169,23 +169,62 @@ function filterButtons() {
   
     
     function updateClock() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const meridiem = hours >= 12 ? 'PM' : 'AM';
-    
-    hours = hours % 12 || 12;
+    if (betaV === "true"){
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const meridiem = hours >= 12 ? 'PM' : 'AM';
+      
+      hours = hours % 12 || 12;
 
-    const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem}`;
-    
-    document.getElementById('clock').innerHTML = timeDisplay;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} BETA VERSION`;
+      
+      document.getElementById('clock').innerHTML = timeDisplay;
+    } else {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const meridiem = hours >= 12 ? 'PM' : 'AM';
+      
+      hours = hours % 12 || 12;
+  
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem}`;
+      
+      document.getElementById('clock').innerHTML = timeDisplay;
+  }
 }
 
-        updateClock()
+      updateClock()
 setInterval(updateClock, 1000);  
+
+
+ function checkAndToggleMode() {
+  const h4Elements = document.getElementsByTagName('h4');
+  for (let i = 0; i < h4Elements.length; i++) {
+      if (h4Elements[i].textContent.includes("Beta Mode") && betaV === "true") {
+          h4Elements[i].textContent = "Normal Mode";
+          return; 
+      }
+  }
+  const pElements = document.getElementsByTagName('p');
+  for (let i = 0; i < pElements.length; i++) {
+      if (pElements[i].textContent.includes("Blue") && betaV === "true") {
+          pElements[i].textContent = "Blue Beta Version";
+          pElements[i].style.fontSize = "150px"
+          return; 
+      }
+  }
+ }
+ 
+
+
+
+
+checkAndToggleMode();
 });
-const betaV = localStorage.getItem("beta")
+
 if (betaV === null) {
   localStorage.setItem("beta", false);
 }
@@ -210,10 +249,7 @@ function nobeta() {
   });
 }
 
-if (window.location.href.includes("main.html") && betaV === "true") {
+if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
   console.log("attempt change");
   window.location.href = "beta/main.html";
  }
-
-
-
