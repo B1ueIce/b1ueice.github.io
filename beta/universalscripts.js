@@ -190,7 +190,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem}`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.0`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
@@ -247,12 +247,6 @@ function beta() {
     
   });
 }
-
-
-if (window.location.href.includes("beta") && betaV === "false") {
-  console.log("attempt change");
-  window.location.href = "../main.html";
- }
 
 if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
   console.log("attempt change");
