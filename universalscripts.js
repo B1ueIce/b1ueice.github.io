@@ -17,6 +17,7 @@ function createButton(text, imageUrl, linkUrl) {
   buttonText.style.display = "inline";
   buttonText.style.color = "#ffffff";
   buttonText.style.fontSize = "20px";
+  buttonText.style.bottom = "5px"
   buttonText.textContent = text;
 
   button.appendChild(image);
