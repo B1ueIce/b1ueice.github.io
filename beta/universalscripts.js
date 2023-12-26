@@ -194,7 +194,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.0`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.1`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
