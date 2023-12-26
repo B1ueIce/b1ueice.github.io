@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="universalscripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/google.ico" type="image/x-icon">
+    <title>Google</title>
+    <style>   
+   body {
+            height: 100%;
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: bold;
+            overflow: hidden;
+            overflow-y: hidden;
+            display: flex;
+            position: absolute;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; 
+        }
+  </style>
+</head>
+<body>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+      var currentURL = window.location.href;
+
+      
+      var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
+
+      
+      if (queryString) {
+        var iframe = document.getElementById('dynamicIframe');
+        iframe.src = queryString;
+      } else {
+        console.log('No valid URL found in the query string.');
+      }
+    });
+      </script>
+      <div id="iframeContainer">
+        <iframe id="dynamicIframe" src=""></iframe>
+      </div>
+
+</body>
+</html>

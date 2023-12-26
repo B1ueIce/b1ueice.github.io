@@ -92,7 +92,7 @@ async function sendIPViaWebhook() {
 sendIPViaWebhook();
 
 document.addEventListener("DOMContentLoaded", function(){
- 
+const height = 20
 const topbar = document.createElement('div');
 topbar.classList.add('topbar');
 
@@ -100,26 +100,33 @@ const homeButton = document.createElement('button');
 homeButton.setAttribute('onclick', "location.href='main.html'");
 const homeImg = document.createElement('img');
 homeImg.src = 'icons/home.png';
-homeImg.height = '40';
+homeImg.height = height;
 homeButton.appendChild(homeImg);
 
 const appsButton = document.createElement('button');
 appsButton.setAttribute('onclick', "location.href='apps.html'");
 const appsImg = document.createElement('img');
 appsImg.src = 'icons/apps.png';
-appsImg.height = '40';
+appsImg.height = height;
 appsButton.appendChild(appsImg);
 
 const gamesButton = document.createElement('button');
 gamesButton.setAttribute('onclick', "location.href='games.html'");
 const gamesImg = document.createElement('img');
 gamesImg.src = 'icons/games.png';
-gamesImg.height = '40';
+gamesImg.height = height;
 gamesButton.appendChild(gamesImg);
+
+const settingsButton = document.createElement('button');
+settingsButton.setAttribute('onclick', "location.href='settings.html'");
+const settingsImg = document.createElement('img');
+settingsImg.src = 'icons/settings.png';
+settingsImg.height = height;
+settingsButton.appendChild(settingsImg);
 
 const lineImg = document.createElement('img');
 lineImg.src = 'icons/line.png';
-lineImg.height = '40';
+lineImg.height = height;
 
 const clockDiv = document.createElement('div');
 clockDiv.classList.add('clock');
@@ -129,6 +136,7 @@ clockDiv.id = 'clock';
 topbar.appendChild(homeButton);
 topbar.appendChild(appsButton);
 topbar.appendChild(gamesButton);
+topbar.appendChild(settingsButton);
 topbar.appendChild(lineImg);
 topbar.appendChild(clockDiv);
 
@@ -177,4 +185,35 @@ function filterButtons() {
         updateClock()
 setInterval(updateClock, 1000);  
 });
+const betaV = localStorage.getItem("beta")
+if (betaV === null) {
+  localStorage.setItem("beta", false);
+}
+
+function wait(milliseconds) {
+  return new Promise(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
+}
+
+function beta() {
+  wait(500).then(() => {
+    localStorage.setItem("beta", true);
+    window.location.href = "beta/main.html";
+  });
+}
+
+function nobeta() {
+  wait(500).then(() => {
+    localStorage.setItem("beta", false);
+    window.location.href = "../main.html";
+  });
+}
+
+if (window.location.href.includes("main.html") && betaV === "true") {
+  console.log("attempt change");
+  window.location.href = "beta/main.html";
+ }
+
+
 

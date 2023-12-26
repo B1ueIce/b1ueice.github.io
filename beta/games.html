@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/google.ico" type="image/x-icon">
+    <script src="universalscripts.js"></script>
+    <title>Google</title>
+    
+    <script>
+ 
+    document.addEventListener("DOMContentLoaded", function() {
+        createButton("Dino Game", "", "https://chromedino.com/")
+        createButton("FNF", "images/fnf.png", "https://static.playunblocked.com/2021/04/friday-night-funkin/")
+        createButton("Chess", "images/chess.png", "https://toytheater.com/chess.php")
+        createButton("2d Minecraft", "images/2dmc.webp", "https://turbowarp.org/10128407/embed")
+        createButton("Checkers", "images/checkers.webp", "https://toytheater.com/checkers.php")
+        createButton("Subway Surfers", "images/surf.webp", "https://superteamxx.github.io/Subway-Surfers/")
+        createButton("GD Scratch", "images/gd.webp", "https://turbowarp.org/105500895/embed")
+        createButton("Mario", "images/mario.webp", "https://jcw87.github.io/c2-smb1/")
+        createButton("Riddle School", "images/rs1.webp", "https://sz-games.github.io/games/ridd");
+        createButton("Riddle School 2", "images/rs2.webp", "https://sz-games.github.io/games/ridd2");
+        createButton("Riddle School 3", "images/rs3.webp", "https://sz-games.github.io/games/ridd3");
+        createButton("Riddle School 4", "images/rs4.webp", "https://sz-games.github.io/games/ridd4");
+        createButton("Riddle School 5", "images/rs5.webp", "https://sz-games.github.io/games/ridd5");
+        createButton("Riddle Transfer", "images/rs6.webp", "https://sz-games.github.io/games/ridd6");
+        createButton("Riddle Transfer 2", "images/rs7.webp", "https://sz-games.github.io/games/ridd7");
+        createButton("Smash Karts", "images/smash-karts.webp", "https://games.crazygames.com/en_US/smash-karts/index.html");
+        createButton("Agar.io", "images/agar.webp", "https://emupedia.net/emupedia-game-agar.io/");
+        createButton("Stack", "images/stack.webp", "https://sz-games.github.io/games/stack");
+        createButton("Bloxorz", "images/bloxorz.webp", "https://bloxorzunblocked.github.io/");
+        createButton("Crossy Road", "images/crossyroad.webp", "https://sz-games.github.io/cr/")
+        createButton("Fluids", "images/fluids.png", "https://sz-games.github.io/storage3/1/")
+        createButton("Temple Run 2", "images/temple.webp", "https://gamemonetize.co/game/pkyyuilfrqkcdnmrxsg60j22ypk0peje/")
+        createButton("Doodle Jump", "images/Doodle_Jump.webp", "https://mr-funkinguy.github.io/gfile/doodle/index.html")
+        createButton("BTD", "images/bloons1.webp", "https://files.crazygames.com/ruffle/bloonstd.html");
+        createButton("BTD2", "images/bloons2.webp", "https://files.crazygames.com/ruffle/bloonstd2.html");
+        createButton("BTD3", "images/bloons3.webp", "https://files.crazygames.com/ruffle/bloonstd3.html");
+        createButton("BTD4", "images/bloons4.webp", "https://games.crazygames.com/en_US/bloons-tower-defense-4/index.html");
+        createButton("BTD5", "images/bloons5.webp", "https://www.miniplay.com/embed/bloons-td-5");
+        createButton("Paper.io 2", "images/paper-io-2.webp", "https://paper-io.com/")
+        createButton("Google Snake!", "images/snake.webp", "https://mr-funkinguy.github.io/gfile/snake/index.html")
+        createButton("Tiny Fishing", "images/fishing.webp", "https://tiny-fishing.com/1.embed")
+        createButton("The Impossible Quiz", "images/quiz.webp", "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/theimpossiblequiz/index.html")
+        createButton("Stupid Clicker", "images/button.webp", "https://turbowarp.org/774324107/embed")
+        createButton("Lil Oasis", "images/liloasis.png", "https://turbowarp.org/859599778/embed")
+        createButton("Lil Oasis Expanded", "images/liloasisEXPANDED.png", "https://turbowarp.org/860600597/embed")
+        createButton("Blackjack", "images/cards.webp", "https://www.247blackjack.com/")
+        createButton("Are you kidding me?", "images/aykm.png",  "https://turbowarp.org/836226987/embed")
+        createButton("AYKM Hard Mode", "images/aykmhm.png", "https://turbowarp.org/846897438/embed")
+        createButton("AYKM Easy Mode", "images/aykmez.png", "https://turbowarp.org/863130622/embed")
+        createButton("AYKM Cursed Mode", "images/aykmcr.png", "https://turbowarp.org/863109457/embed")
+        createButton("AYKM Sanic Mode", "images/aykmsnc.png", "https://turbowarp.org/863584949/embed")
+        createButton("AYKM Lots of Stuff Mode", "images/aykmlos.png", "https://turbowarp.org/863553943/embed")
+        createButton("AYKM Dark Mode", "images/aykmdm.png", "https://turbowarp.org/863602237/embed")
+        createButton("AYKM Ice Mode", "images/aykmice.png", "https://turbowarp.org/915310339/embed")
+        createButton("FNAF Remake", "images/fnaf1.jpg", "https://fnafunblocked.fun/games/fnaf-1/index.html")
+        createButton("FNAF 2 Remake", "images/fnaf2.jpg", "https://fnafunblocked.fun/games/fnaf-2/index.html")
+        createButton("FNAF 3 Remake", "images/fnaf3.jpg", "https://fnafunblocked.fun/games/fnaf-3/index.html")
+        createButton("FNAF 4 Remake", "images/fnaf4.jpg", "https://fnafunblocked.fun/games/fnaf-4/index.html")
+        createButton("Little Alchemy", "images/littlealchemy.png","https://littlealchemy.com")
+        createButton("Little Alchemy 2","images/littlealchemy2.jpg", "https://littlealchemy2.com")
+        createButton("Flappy 2048" , "images/2048f.png" , "https://hczhcz.github.io/Flappy-2048/")
+        createButton("2048", "images/2048.png" , "https://play2048.co")
+        createButton("90071992 54740992", "images/20489.png" , "https://dmitrykuzmenko.github.io/2048/")
+        createButton("11", "images/204811.png" , "http://suki.ipb.ac.rs/11/")
+        createButton("590295810 358705700000", "images/20485.png" , "https://thereal23.github.io/590295810358705700000/")
+        createButton("2048 Alphabet", "images/2048k.png" , "https://vdmitriyev.github.io/2048/")
+        createButton("Mario 64", "images/Mario64.jpg" , "https://sm64webbackup--collintyes.repl.co/")
+        createButton("Old Minecraft", "images/mc.jpg" ,"https://ubg100.github.io/games/eaglercraft/index.html")
+        createButton("Tunnel Rush", "images/tunnel.png","https://tunnelrush.github.io/games/tunnel-rush/index.html")
+        createButton("Slope", "images/slope.jpg" , "https://slope2.online/1.embed")
+        createButton("Pinball" , "images/pinball.jpg" , "https://toytheater.com/space-pinball.php")
+        createButton("Basket Random", "images/basket.jpg", "https://files.twoplayergames.org/files/games/other/Basket_Random/index.html")
+        createButton("Volley Random", "images/volley.jpg", "https://www.twoplayergames.org/gameframe/volley-random")
+        createButton("Soccer Random", "images/soccer.jpg", "https://www.twoplayergames.org/gameframe/soccer-random")
+        createButton("Boxing Random", "images/boxing.jpg", "https://www.twoplayergames.org/gameframe/boxing-random")
+        createButton("Tomb of the Mask", "images/mask.png" ,"https://tombofthemask.github.io/g8/tomb-of-the-mask/")
+        createButton("Bitlife", "images/bitlife.jpg", "https://ubg365.github.io/bitlife-life-simulator/play.html")
+        createButton("1v1.lol", "images/1v1.jpg", "https://1v1.lol/")
+        createButton("Smash 64", "images/s64.jpg", "https://gamesfrog.com/games/n64/super-smash-bros/iframe")
+        createButton("Flappy Bird", "images/flappy.jpg", "https://mr-funkinguy.github.io/83/flappy-bird/index.html")
+        createButton("Crazy 8s" , "images/8s.jpg" , "https://files.acticdn.com/278374/25673/frame.html")
+        createButton("Wordle", "images/wordle.png","https://sz-games.github.io/Games2/wordle")
+        createButton("Stickman Hook", "images/stickmanhook.jpg", "https://sz-games.github.io/Games5/stickman-hook")
+        createButton("MOTO X3M", "images/moto.jpg", "https://tbg95.github.io/moto-x3m/game")
+        createButton("Cut the Rope", "images/cutrope.jpg", "https://sz-games.github.io/Games5/ctr")
+        createButton("Cell Machine", "images/cellmachine.png", "https://html-classic.itch.zone/html/2472216/index.html")
+        createButton( "Street Fighter II", "images/streetfighter.jpg", "https://sz-games.github.io/games3/fighter2")
+        createButton("5 nights at winstons", "", "https://g.deev.is/fnaw/")
+        createButton("Stackball", "images/stackball.jpg",  "https://sz-games.github.io/Games7/stackball/")
+        createButton("Paper Fold", "images/fold.jpg", "https://sz-games.github.io/Games8/paper-fold")
+        createButton("Sand Game", "", "https://sz-games.github.io/Games6/sand-game")
+        createButton("SANS FIGHT", "images/sans.png", "https://jcw87.github.io/c2-sans-fight/")
+        createButton("Run 3", "images/run3.png", "https://sz-games.github.io/Games-2/run3/")
+        createButton("Cookie Clicker", "images/cookie.jpg" ,"https://watchdocumentaries.com/wp-content/uploads/games/cookie-clicker/")
+        createButton("Antimatter Dimensions", "images/ad.jpg", "https://ivark.github.io/AntimatterDimensions/")
+        createButton("Clicker Heroes", "images/clickerheroes.jpg", "https://games-online.io/game/ClickerHeroes/")
+        createButton("Idle Breakout", "images/idlebreak.png", "https://html-classic.itch.zone/html/9150519/index.html")
+        createButton("Money Rush", "images/moolah.jpg", "https://sz-games.github.io/Games8/MONEYRUSH")
+        createButton("There is no game", "images/nogame.jpg","https://games.construct.net/174/latest")
+        createButton("Vex", "images/vex.png","https://www.gameflare.com/embed/vex/")
+        createButton("Vex 2", "images/vex.png","https://www.gameflare.com/embed/vex-2/")
+        createButton("Vex 3", "images/vex.png","https://sz-games.github.io/Games7/vex3")
+        createButton("Vex 4", "images/vex.png" , "https://sz-games.github.io/Games7/vex4")
+        createButton("Vex 5", "images/vex.png", "https://sz-games.github.io/Games7/vex5")
+        createButton("Vex 6", "images/vex.png" ,"https://sz-games.github.io/Games7/vex6")
+        createButton("Getting Over It Scratch", "images/gettingoverit.png" ,"https://turbowarp.org/389464290/embed")
+        createButton("Backrooms", "images/backrooms.png" ,"https://sz-games.github.io/Games/backrooms")
+        createButton("We Become What We Behold", "images/wbwwb.png" ,"https://mr-funkinguy.github.io/gfile/wbwwb/index.html")
+    });
+
+   
+    
+      </script>
+</head>
+<body>
+    <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+        new Crate({
+            server: '1184246690761424987', 
+            channel: '1184246692485288120',
+        })
+    </script>
+      <h1 style="top: 0;">Games!</h1>
+      <div id="myContainer"></div>
+      <input type="text" id="searchInput" placeholder="Search...">
+ 
+</body>
+</html>
