@@ -161,6 +161,7 @@ function filterButtons() {
   }
   
 
+  
   const searchInput = document.getElementById('searchInput');
   if (searchInput != null) {
   searchInput.addEventListener('input', filterButtons);
