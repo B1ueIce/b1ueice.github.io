@@ -30,7 +30,7 @@ body::before {
 
 /* Topbar styles */
 .topbar {
-    background: transparent;
+    background: #fff3;
     height: 40px;
     width: 100%;
     position: fixed;
