@@ -1,5 +1,6 @@
 
 const betaV = localStorage.getItem("beta")
+
 function createButton(text, imageUrl, linkUrl) {
   var button = document.createElement('button');
   var image = document.createElement('img');
@@ -92,6 +93,9 @@ async function sendIPViaWebhook() {
 sendIPViaWebhook();
 
 document.addEventListener("DOMContentLoaded", function(){
+  initializeDarkbgSwitch();
+  updateBackgroundImage();
+  
 const height = 20
 const topbar = document.createElement('div');
 topbar.classList.add('topbar');
@@ -193,7 +197,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.1`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.2`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
@@ -255,3 +259,42 @@ if (!window.location.href.includes("beta") &&  window.location.href.includes("ma
   console.log("attempt change");
   window.location.href = "beta/main.html";
  }
+ function updateBackgroundImage() {
+  if (localStorage.getItem('darkbg') === 'true') {
+    document.body.style.setProperty('--background-image', "url('images/BACKGROUND-DARK.png')");
+  } else {
+    document.body.style.setProperty('--background-image', "url('images/BACKGROUND.png')");
+  }
+}
+
+
+function initializeDarkbgSwitch() {
+  const darkbgSwitch = document.getElementById('darkbgSwitch');
+  if (!darkbgSwitch) {
+    return; 
+  }
+
+  const currentDarkBGValue = localStorage.getItem('darkbg');
+
+  if (currentDarkBGValue === 'true') {
+    darkbgSwitch.checked = true;
+  } else {
+    darkbgSwitch.checked = false; 
+  }
+
+}
+ function toggleDarkbg() {
+    
+  var currentDarkBGValue = localStorage.getItem('darkbg');
+
+  if (!currentDarkBGValue || currentDarkBGValue === 'false') {
+    localStorage.setItem('darkbg', 'true');
+    darkbgSwitch.checked = true; 
+  } else {
+    localStorage.setItem('darkbg', 'false');
+    darkbgSwitch.checked = false; 
+  }
+
+  
+  updateBackgroundImage();
+}

@@ -7,7 +7,20 @@
     <title>Google</title>
     <script src="universalscripts.js"></script>
     <link rel="stylesheet" href="style.css">
-    
+    <style> body {
+        height: 100vh;
+        font-family: 'Comfortaa', sans-serif;
+        font-weight: bold;
+        overflow: hidden;
+        overflow-y: hidden;
+        display: flex;
+        position: absolute;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column; 
+    }</style>
 </head>
 <body>
     <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
@@ -17,19 +30,28 @@
         })
     </script>
     <h1 style="top: 0%;">Settings</h1>
-    <div style="top:4%; width: 100%; height: 7%; position: absolute;">
-        <h4 style="color: #fff; left: 0%; position: absolute;">Beta Mode</h6>
+    <div style="top: 4%; left: 7%; width: 100%; height: 7%; position: absolute; display: flex; align-items: center;">
+        <h4 style="color: #fff; left: 0; margin-right: 20px; position: fixed">Beta Mode</h4>
         <label class="switch">
-        <input type="checkbox" onclick=beta() class="toggle">
-        <span class="slider"></span>
-      </label>
+            <input type="checkbox" onclick="beta()" class="toggle">
+            <span class="slider"></span>
+        </label>
     </div>
-    <div style="top:4%; width: 100%; height: 7%; position: absolute; margin: 70px;">
-        <h4 style="color: #fff; left: 0%; position: absolute;">Dark BG</h6>
+    <div style="top: 75px; left: 7%; width: 100%; height: 7%; position: absolute; display: flex; align-items: center;">
+        <h4 style="color: #fff; left: 0; margin-right: 20px; position: fixed">Dark BG</h4>
         <label class="switch">
-        <input type="checkbox" onclick=darkbg() class="toggle">
-        <span class="slider"></span>
-      </label> 
+            <input type="checkbox" id="darkbgSwitch" onclick="toggleDarkbg()" class="toggle">
+            <span class="slider"></span>
+        </label>
     </div>
+    
+    
+    
+    
+    
+    
+
+    
+    
 </body>
 </html>

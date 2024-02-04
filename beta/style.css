@@ -21,7 +21,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/BACKGROUND.png');
+    background-image: var(--background-image, url('default-background.png'));
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: center;
@@ -216,9 +216,8 @@ h1:hover {
 
 /* Toggle switch styles */
 .switch {
-    position: absolute;
-    left: 7%;
-    top: 15%;
+    position: fixed;
+    left: 12%;
     display: inline-block;
     width: 60px;
     height: 20px;
