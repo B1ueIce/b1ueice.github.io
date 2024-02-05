@@ -197,14 +197,17 @@ function beta() {
     
   });
 }
-if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
-  console.log("attempt change");
-  window.location.href = "beta/main.html";
- }
- if (window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "false") {
-  console.log("attempt change");
-  window.location.href = "../main.html";
- }
+wait(500).then(() => {
+  if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
+    console.log("attempt change");
+    window.location.href = "beta/main.html";
+  }
+  if (window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "false") {
+    console.log("attempt change");
+    window.location.href = "../main.html";
+  }
+});
+
  function updateBackgroundImage() {
   if (localStorage.getItem('darkbg') === 'true') {
     document.body.style.setProperty('--background-image', "url('images/BACKGROUND-DARK.png')");
