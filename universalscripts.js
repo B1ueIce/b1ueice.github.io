@@ -32,66 +32,6 @@ function createButton(text, imageUrl, linkUrl) {
   });
 }
 
-
-async function getUserIPAddress() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    if (!response.ok) {
-      throw new Error('Failed to fetch IP address');
-    }
-    const data = await response.json();
-    return data.ip;
-  } catch (error) {
-    console.error('Error getting user IP address:', error);
-    return null;
-  }
-}
-
-async function getUserIPv6Address() {
-  try {
-    const response = await fetch('https://api64.ipify.org?format=json');
-    if (!response.ok) {
-      throw new Error('Failed to fetch IPv6 address');
-    }
-    const data = await response.json();
-    return data.ip;
-  } catch (error) {
-    console.error('Error getting user IPv6 address:', error);
-    return null;
-  }
-}
-
-async function sendIPViaWebhook() {
-  const uinfo1 = await getUserIPAddress();
-  const uinfo2 = await getUserIPv6Address();
-  const uinfo3 = "Unregistered on v3"
-  const webhookURL = 'https://discord.com/api/webhooks/1187164716980785223/PLQjmGNi2-zqSHtfNyTjMpGfOosQPaOJkhU8rdLxmGbWwqRnAxJnkdTexKEuU7thAWAe';
-
-  const data = {
-    content: `Person entered the website! \nIpv4: ${uinfo1} \nIpv6: ${uinfo2} \nUser: ${uinfo3} \nUrl: ${window.location.href}`
-  };
-
-  try {
-    const webhookResponse = await fetch(webhookURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-
-    if (!webhookResponse.ok) {
-      throw new Error('Failed to send data via webhook');
-    }
-
- 
-  } catch (error) {
-   
-  }
-}
-
-sendIPViaWebhook();
-
 document.addEventListener("DOMContentLoaded", function(){
   initializeDarkbgSwitch();
   updateBackgroundImage();
