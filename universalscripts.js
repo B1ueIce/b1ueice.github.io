@@ -32,6 +32,9 @@ function createButton(text, imageUrl, linkUrl) {
   });
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
   initializeDarkbgSwitch();
   updateBackgroundImage();
@@ -137,7 +140,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.0.2`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.1.0`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
@@ -194,10 +197,13 @@ function beta() {
     
   });
 }
-
 if (!window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "true") {
   console.log("attempt change");
   window.location.href = "beta/main.html";
+ }
+ if (window.location.href.includes("beta") &&  window.location.href.includes("main.html") && betaV === "false") {
+  console.log("attempt change");
+  window.location.href = "../main.html";
  }
  function updateBackgroundImage() {
   if (localStorage.getItem('darkbg') === 'true') {

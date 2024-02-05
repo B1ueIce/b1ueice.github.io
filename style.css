@@ -129,7 +129,7 @@ button img {
 /* Other styles - Simplified where possible */
 .text-container {
     position: absolute;
-    font-size: 50px;
+    font-size: 50%;
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
