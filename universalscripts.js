@@ -162,7 +162,7 @@ setInterval(updateClock, 1000);
   for (let i = 0; i < pElements.length; i++) {
       if (pElements[i].textContent.includes("Blue") && betaV === "true") {
           pElements[i].textContent = "Blue Beta Version";
-          pElements[i].style.fontSize = "150px"
+          pElements[i].style.fontSize = " 105px"
           return; 
       }
   }
