@@ -1,5 +1,5 @@
 
-const betaV = localStorage.getItem("beta")
+const betaV = localStorage.getItem("betaversion")
 
 function createButton(text, imageUrl, linkUrl) {
   var button = document.createElement('button');
@@ -196,10 +196,10 @@ function wait(milliseconds) {
 function beta() {
   wait(500).then(() => {
     if (betaV === "false") {
-      localStorage.setItem("beta", true);
+      localStorage.setItem("betaversion", true);
       window.location.href = "beta/main.html";
     } else {
-      localStorage.setItem("beta", false);
+      localStorage.setItem("betaversion", false);
       window.location.href = "../main.html";
     }
     
