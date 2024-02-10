@@ -34,10 +34,15 @@ function createButton(text, imageUrl, linkUrl) {
 
 
 
-
 document.addEventListener("DOMContentLoaded", function(){
+  
   initializeDarkbgSwitch();
   updateBackgroundImage();
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'p' || event.key === 'P') {
+      window.top.location.href = "https://www.google.com"; 
+    }
+  });
   
 const height = 20
 const topbar = document.createElement('div');
