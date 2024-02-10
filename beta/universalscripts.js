@@ -109,6 +109,14 @@ function filterButtons() {
     });
   }
   
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'p' || event.key === 'P') {
+        window.location.href = 'https://www.google.com/'; 
+    }
+});
+
+
+
 
   
   const searchInput = document.getElementById('searchInput');
@@ -140,7 +148,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.1.1`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.2.2`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }

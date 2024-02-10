@@ -6,7 +6,7 @@
 </head>
 <body>
     <script>
-        var win = window.open("about:blank", "", "width=1,height=1");
+        var win = window.open("about:blank", '_blank');
         win.resizeTo(screen.width * 0.9, screen.height * 0.9);
         win.location.origin = 'about:blank';
             var betaEnabled = win.localStorage.getItem('beta') === 'true';
