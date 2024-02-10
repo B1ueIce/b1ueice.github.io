@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
   initializeDarkbgSwitch();
   updateBackgroundImage();
   document.addEventListener('keydown', function(event) {
-    if (event.key === 'p' || event.key === 'P') {
+    if (event.key === '#') {
       window.top.location.href = "https://www.google.com"; 
     }
   });
@@ -149,7 +149,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.2.6`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.2.11`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
