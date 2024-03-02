@@ -26,20 +26,31 @@
 </head>
 <body>
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-      var currentURL = window.location.href;
+      document.addEventListener('DOMContentLoaded', function() {
+  var currentURL = window.location.href;
+  var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
 
-      
-      var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
+  let proxyKeyContent; 
 
-      
-      if (queryString) {
-        var iframe = document.getElementById('dynamicIframe');
-        iframe.src = queryString;
-      } else {
-        console.log('No valid URL found in the query string.');
-      }
-    });
+fetch('proxykey.txt')
+    .then(response => response.text())
+    .then(text => {
+        proxyKeyContent = text; 
+        console.log(proxyKeyContent); 
+        if (queryString) {
+    var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
+    var iframe = document.getElementById('dynamicIframe');
+    iframe.src = finalUrl;
+  } else {
+    console.log('No valid URL found in the query string.');
+  }
+    })
+    .catch(error => console.error('Error loading the proxy key:', error));
+
+
+  
+});
+
     function openPopup() { 
       const element = document.getElementById("popout");
       element.parentNode.removeChild(element);

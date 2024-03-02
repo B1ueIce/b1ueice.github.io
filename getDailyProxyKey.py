@@ -4,13 +4,16 @@ import subprocess
 import os
 
 try:
-    url = "https://demo-opensource.rammerhead.org/newsession?pwd=sharkie4life"
+    url = "https://nebulaproxy.io/newsession"
     response = requests.get(url)
     print("Status Code:", response.status_code)
     print("Response Text:", response.text)
 
     file_path = r"C:\Users\Kiera\OneDrive\Desktop\Programs\Made By Me\b1ueice.github.io\proxykey.txt"
     with open(file_path, 'w') as file:
+        file.write(response.text)
+    file_path2 = r"C:\Users\Kiera\OneDrive\Desktop\Programs\Made By Me\b1ueice.github.io\beta\proxykey.txt"
+    with open(file_path2, 'w') as file:
         file.write(response.text)
     print("The script executed successfully. Committing to GitHub...")
 
