@@ -26,20 +26,24 @@
 </head>
 <body>
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-      var currentURL = window.location.href;
-
       
-      var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
 
-      
-      if (queryString) {
-        var iframe = document.getElementById('dynamicIframe');
-        iframe.src = queryString;
-      } else {
-        console.log('No valid URL found in the query string.');
-      }
-    });
+      document.addEventListener('DOMContentLoaded', function() {
+  var currentURL = window.location.href;
+  var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
+  // Manually insert the content of proxykey.txt below
+  var proxyKeyContent = "eb9b934c09ab4394847f115d5d74a8ac";
+
+  if (queryString) {
+    var finalUrl = "https://demo-opensource.rammerhead.org/" + proxyKeyContent + "/" + queryString;
+    var iframe = document.getElementById('dynamicIframe');
+    iframe.src = finalUrl;
+  } else {
+    console.log('No valid URL found in the query string.');
+  }
+});
+
+
     function openPopup() { 
       const element = document.getElementById("popout");
       element.parentNode.removeChild(element);
