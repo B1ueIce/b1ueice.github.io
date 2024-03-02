@@ -11,13 +11,13 @@ function createButton(text, imageUrl, linkUrl) {
   }
   image.style.objectFit = "cover";
   var buttonText = document.createElement('span');
-  button.style.height = "120px";
-  button.style.width = "120px";
+  button.style.height = "110px";
+  button.style.width = "110px";
   button.style.margin = "7px";
   buttonText.style.zIndex = "10000";
   buttonText.style.display = "inline";
   buttonText.style.color = "#ffffff";
-  buttonText.style.fontSize = "20px";
+  buttonText.style.fontSize = "17px";
   buttonText.textContent = text;
 
   button.appendChild(image);
@@ -144,7 +144,7 @@ function filterButtons() {
       
       hours = hours % 12 || 12;
   
-      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.3.1`;
+      const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 1.7.3`;
       
       document.getElementById('clock').innerHTML = timeDisplay;
   }
