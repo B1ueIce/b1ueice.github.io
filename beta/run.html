@@ -38,7 +38,18 @@ fetch('proxykey.txt')
         proxyKeyContent = text; 
         console.log(proxyKeyContent); 
         if (queryString) {
-    var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
+    if (queryString !== "https://browser.rammerhead.org/" 
+    && queryString !== "https://v2.sodium-5h8.pages.dev/welcome" 
+    && queryString !== "https://bruhprox.pages.dev/"
+    && queryString !== "https://howtomath.org/main.html" 
+    && queryString !== "https://intoabyss.org/"
+    && queryString !== "https://nebulaproxy.io/"
+    ) {
+      var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
+    } else {
+      var finalUrl = queryString
+    }
+   
     var iframe = document.getElementById('dynamicIframe');
     iframe.src = finalUrl;
   } else {
