@@ -44,6 +44,7 @@ fetch('proxykey.txt')
     && queryString !== "https://howtomath.org/main.html" 
     && queryString !== "https://intoabyss.org/"
     && queryString !== "https://nebulaproxy.io/"
+    && queryString !== "https://noctura.tech"
     ) {
       var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
     } else {
