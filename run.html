@@ -30,35 +30,26 @@
   var currentURL = window.location.href;
   var queryString = currentURL.substring(currentURL.indexOf('=') + 1);
 
-  let proxyKeyContent; 
 
-fetch('proxykey.txt')
-    .then(response => response.text())
-    .then(text => {
-        proxyKeyContent = text; 
-        console.log(proxyKeyContent); 
-        if (queryString) {
-    if (queryString !== "https://browser.rammerhead.org/" 
-    && queryString !== "https://v2.sodium-5h8.pages.dev/welcome" 
-    && queryString !== "https://bruhprox.pages.dev/"
-    && queryString !== "https://howtomath.org/main.html" 
-    && queryString !== "https://intoabyss.org/"
-    && queryString !== "https://nebulaproxy.io/"
-    && queryString !== "https://noctura.tech"
-    && queryString !== "https://whitespider.dev/"
-    ) {
-      var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
-    } else {
-      var finalUrl = queryString
-    }
-   
-    var iframe = document.getElementById('dynamicIframe');
-    iframe.src = finalUrl;
-  } else {
-    console.log('No valid URL found in the query string.');
-  }
-    })
-    .catch(error => console.error('Error loading the proxy key:', error));
+
+      let finalUrl;
+      if (queryString !== "https://browser.rammerhead.org/" 
+          && queryString !== "https://v2.sodium-5h8.pages.dev/welcome" 
+          && queryString !== "https://bruhprox.pages.dev/"
+          && queryString !== "https://howtomath.org/main.html" 
+          && queryString !== "https://intoabyss.org/"
+          && queryString !== "https://nebulaproxy.io/"
+          && queryString !== "https://noctura.tech"
+          && queryString !== "https://whitespider.dev/"
+      ) {
+          finalUrl = queryString;
+      } else {
+          finalUrl = queryString;
+      }
+  
+      var iframe = document.getElementById('dynamicIframe');
+      iframe.src = finalUrl;
+
 
 
   
