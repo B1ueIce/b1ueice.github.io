@@ -32,33 +32,50 @@
 
   let proxyKeyContent; 
 
-fetch('proxykey.txt')
-    .then(response => response.text())
-    .then(text => {
-        proxyKeyContent = text; 
-        console.log(proxyKeyContent); 
-        if (queryString) {
-    if (queryString !== "https://browser.rammerhead.org/" 
-    && queryString !== "https://v2.sodium-5h8.pages.dev/welcome" 
-    && queryString !== "https://bruhprox.pages.dev/"
-    && queryString !== "https://howtomath.org/main.html" 
-    && queryString !== "https://intoabyss.org/"
-    && queryString !== "https://nebulaproxy.io/"
-    && queryString !== "https://noctura.tech"
-    && queryString !== "https://whitespider.dev/"
-    ) {
-      var finalUrl = "https://nebulaproxy.io/" + proxyKeyContent + "/" + queryString;
-    } else {
-      var finalUrl = queryString
-    }
-   
-    var iframe = document.getElementById('dynamicIframe');
-    iframe.src = finalUrl;
-  } else {
-    console.log('No valid URL found in the query string.');
+  var globalProxyKeyContent; // Define a global variable to store the proxy key content
+  fetch('https://browser.rammerhead.org/api/generateSessionId', {
+  method: 'GET', 
+  
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
   }
-    })
-    .catch(error => console.error('Error loading the proxy key:', error));
+  return response.json(); // Converts the response to JSON
+})
+.then(data => {
+  console.log(data.id); // Prints the id from the response
+
+  globalProxyKeyContent = data.id; 
+  
+
+            if (queryString) {
+                let finalUrl;
+                if (queryString !== "https://browser.rammerhead.org/" 
+                    && queryString !== "https://v2.sodium-5h8.pages.dev/welcome" 
+                    && queryString !== "https://bruhprox.pages.dev/"
+                    && queryString !== "https://howtomath.org/main.html" 
+                    && queryString !== "https://intoabyss.org/"
+                    && queryString !== "https://nebulaproxy.io/"
+                    && queryString !== "https://noctura.tech"
+                    && queryString !== "https://whitespider.dev/"
+                ) {
+                    finalUrl = "https://browser.rammerhead.org/" + globalProxyKeyContent + "/" + queryString;
+                } else {
+                    finalUrl = queryString;
+                }
+            
+                var iframe = document.getElementById('dynamicIframe');
+                iframe.src = finalUrl;
+            } else {
+                console.log('No valid URL found in the query string.');
+            }
+})
+.catch(error => {
+  console.error('Error:', error); // Handle any errors
+});
+
+
 
 
   
