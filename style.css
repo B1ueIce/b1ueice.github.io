@@ -71,6 +71,7 @@ body::before {
 button {
     width: 60px;
     height: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
     border: none;
@@ -209,6 +210,7 @@ h1:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #3db8dd;
+    border-radius: 10px;
 }
 
 /* Toggle switch styles */
