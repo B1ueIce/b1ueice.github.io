@@ -13,18 +13,12 @@
 <link href="styles.css" rel="stylesheet">
 <script src="aes.js"></script>
 <script src="universalscripts.js"></script>
-<style>body {
-  margin: 0;
-  height: 100vh;
-  background-image: url('images\background.png');
+<style>.full-screen-element {
+  width: 100%;
+  height: 100%;
+  background-image: url('images/background.png');
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Comfortaa";
-  overflow: hidden;
-  flex-direction: column;
 }</style>
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
 
@@ -36,7 +30,8 @@
 
 </head>
 <body>
-
+  <div class="full-screen-element">
+  </div>
 <div class="center-text">Blue</div>
 <div class="left-text" id="clock"></div>
 <div class="right-text">If nothing works open a game then reload the page</div>
