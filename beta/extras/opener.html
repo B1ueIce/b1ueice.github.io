@@ -8,7 +8,13 @@
     <script>
       var newWindow = window.open("about:blank");
   var iframe = document.createElement("iframe");
-  newWindow.document.title = "New Tab"
+  newWindow.document.title = "Home"
+  let headTitle = newWindow.document.querySelector('head');
+  let setFavicon = newWindow.document.createElement('link');
+  setFavicon.setAttribute('rel','shortcut icon');
+  setFavicon.setAttribute('href',"https://ssl.gstatic.com/classroom/ic_product_classroom_144.png");
+  headTitle.appendChild(setFavicon);
+
   iframe.src = "https://b1ueice.github.io/main.html";
   iframe.style.width = "100%";
   iframe.style.height = "100%";
