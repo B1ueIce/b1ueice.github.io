@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function(){
             && linkUrl !== "https://www.youtube.com/"
             && linkUrl !== "https://sites.google.com/site/unblockedgame76/"
             && linkUrl !== "https://sites.google.com/site/classroom6x/"
-            && linkUrl !== ""
+            && linkUrl !== "https://sandboxels.r74n.com/"
             && linkUrl !== ""
             && linkUrl !== ""
             && linkUrl !== ""
@@ -142,9 +142,9 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
   }
-  let zIndexCounter = 2147483000;
+  let zIndexCounter = 1003; 
 
-  function createWindow(title, url) {
+function createWindow(title, url) {
     const windowElement = document.createElement('div');
     windowElement.classList.add('window');
     windowElement.style.left = '20px';
@@ -152,6 +152,25 @@ document.addEventListener("DOMContentLoaded", function(){
     windowElement.style.width = 'calc(60vw)';
     windowElement.style.height = 'calc(70vh)';
     windowElement.style.zIndex = zIndexCounter;
+
+   
+  
+    zIndexCounter++;
+
+ 
+    windowElement.addEventListener('mousedown', () => {
+        
+        windowElement.style.zIndex = 2147483000;
+       
+        zIndexCounter = 1003;
+      
+        document.querySelectorAll('.window').forEach((win) => {
+            if (win !== windowElement) {
+                win.style.zIndex = zIndexCounter;
+                zIndexCounter++;
+            }
+        });
+    });
 
     const titleBar = document.createElement('div');
     titleBar.classList.add('title-bar');
@@ -162,17 +181,17 @@ document.addEventListener("DOMContentLoaded", function(){
     windowTitle.innerText = title;
     titleBar.appendChild(windowTitle);
 
-    const fullscreenButton = document.createElement('button'); 
+    const fullscreenButton = document.createElement('button');
     fullscreenButton.classList.add('fullscreen-button');
-    fullscreenButton.innerHTML = '&#x26F6;'; 
+    fullscreenButton.innerHTML = '&#x26F6;';
     fullscreenButton.id = 'fullscreenButton';
     titleBar.appendChild(fullscreenButton);
 
     const closeButton = document.createElement('button');
     closeButton.classList.add('close-button');
-    closeButton.innerHTML = '&#10005;'; 
+    closeButton.innerHTML = '&#10005;';
     titleBar.appendChild(closeButton);
-    
+
     const content = document.createElement('iframe');
     content.classList.add('content');
     content.src = url;
@@ -182,8 +201,8 @@ document.addEventListener("DOMContentLoaded", function(){
     content.style.backgroundImage = "url('images/Background.png')";
     if (darkMode === true) {
         content.style.backgroundImage = "url('images/Background-dark.png')";
-        
-       }
+
+    }
     content.style.backgroundSize = "cover";
     content.style.zIndex = "-1000"
     content.style.overflow = "hidden"
@@ -191,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function(){
     content.style.left = "-10px"
     content.style.top = `15px`
     windowElement.appendChild(content);
-    
+
     const resizeHandle = document.createElement('div');
     resizeHandle.classList.add('resize-handle');
     windowElement.appendChild(resizeHandle);
@@ -219,9 +238,9 @@ document.addEventListener("DOMContentLoaded", function(){
         let newX = e.clientX - startX;
         let newY = e.clientY - startY;
 
-    
-        newY = Math.max(newY, 0); 
-        newY = Math.min(newY, window.innerHeight *1.6 - windowElement.offsetHeight); 
+
+        newY = Math.max(newY, 0);
+        newY = Math.min(newY, window.innerHeight * 1.6 - windowElement.offsetHeight);
 
         windowElement.style.left = newX + 'px';
         windowElement.style.top = newY + 'px';
@@ -239,33 +258,30 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let stopResizeTimeout;
 
-function startResize(e) {
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
+    function startResize(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
 
-    document.addEventListener('mousemove', resize);
-    document.addEventListener('mouseup', stopResize);
+        document.addEventListener('mousemove', resize);
+        document.addEventListener('mouseup', stopResize);
 
 
-    resizeHandle.addEventListener('mouseleave', handleMouseLeave);
-}
+        resizeHandle.addEventListener('mouseleave', handleMouseLeave);
+    }
 
-function handleMouseLeave() {
-    
-    clearTimeout(stopResizeTimeout);
-    
-    
-    stopResizeTimeout = setTimeout(() => {
-        isDragging = false;
-        document.removeEventListener('mousemove', resize);
-        document.removeEventListener('mouseup', stopResize);
-    }, 500);
-}
+    function handleMouseLeave() {
 
-    
-    
-    
+        clearTimeout(stopResizeTimeout);
+
+
+        stopResizeTimeout = setTimeout(() => {
+            isDragging = false;
+            document.removeEventListener('mousemove', resize);
+            document.removeEventListener('mouseup', stopResize);
+        }, 500);
+    }
+
 
     function resize(e) {
         if (!isDragging) return;
@@ -304,6 +320,24 @@ function handleMouseLeave() {
             }
         }
     }
+    
+    // Listen for fullscreen change events
+    document.addEventListener("fullscreenchange", adjustContent);
+    document.addEventListener("webkitfullscreenchange", adjustContent);
+    document.addEventListener("mozfullscreenchange", adjustContent);
+    document.addEventListener("MSFullscreenChange", adjustContent);
+    
+    function adjustContent() {
+        const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        if (fullscreenElement === windowElement) {
+            content.style.width = '100%';
+            content.style.height = '100%';
+        } else {
+            content.style.width = 'calc(100% - 20px)';
+            content.style.height = 'calc(100% - 25px)';
+        }
+    }
+    
 }
 
 
