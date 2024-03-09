@@ -5,13 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blue</title>
 
-<script src="uv.bundle.js" defer=""></script>
-<script src="uv.client.js" defer=""></script>
-<script src="uv.handler.js" defer=""></script>
-<script src="uv.config.js" defer=""></script>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
-<script src="aes.js"></script>
+
 <script src="universalscripts.js"></script>
 
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
@@ -25,14 +21,20 @@
 </head>
 <body>
 
+<div class="dark-mode-toggle">
+  <label for="dark-mode-switch">Dark Mode:</label>
+  <input type="checkbox" id="dark-mode-switch">
+</div>
+
 <div class="center-text">Blue</div>
 <div class="left-text" id="clock"></div>
 <div class="right-text">If nothing works open a game then reload the page</div>
 <div class="icon-container">
     <img src="images/icons/apps.png" alt="App Icon" class="icon" id="defaultIcon"/>
     <img src="images/icons/x.png" alt="Close Icon" class="icon" id="closeIcon" style="opacity: 0; position: absolute;">
-  </div>
-  
+</div>
+
 <div class="box" id="Box"></div>
+
 </body>
 </html>

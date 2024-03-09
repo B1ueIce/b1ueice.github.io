@@ -25,10 +25,43 @@ const xor = {
         );
     },
 };
+
+
 document.addEventListener("DOMContentLoaded", function(){
+   
 
-
-  
+    var darkMode = localStorage.getItem("DarkBg");
+    var body = document.body;
+    var darkModeSwitch = document.getElementById("dark-mode-switch");
+    
+    function setDarkMode(e) {
+        darkMode = e;
+        localStorage.setItem("DarkBg", e);
+    
+        if (e) {
+            body.style.backgroundImage = "url('images/Background-dark.png')";
+        } else {
+            body.style.backgroundImage = "url('images/Background.png')";
+        }
+    }
+    
+    // Corrected condition for checking darkMode
+    if (darkMode === "true") {
+        setDarkMode(true);
+        darkModeSwitch.checked = true; // Update checkbox state
+    } else {
+        setDarkMode(false);
+    }
+    
+    function toggleDarkMode() {
+        // Toggle the dark mode status
+        setDarkMode(!darkMode);
+        darkModeSwitch.checked = darkMode; // Update checkbox state
+    }
+    
+    // Corrected addEventListener
+    darkModeSwitch.addEventListener("change", toggleDarkMode);
+    
     function updateClock() {
 
           const now = new Date();
@@ -69,7 +102,10 @@ document.addEventListener("DOMContentLoaded", function(){
     buttonText.style.color = "#ffffff";
     buttonText.style.fontSize = "15px";
     buttonText.textContent = text;
-  
+    if (darkMode === true) {
+        button.style.filter = "brightness(50%)"
+        
+       }
     button.appendChild(image);
     button.appendChild(buttonText);
     buttonsContainer = document.getElementById("buttonscontainer");
@@ -143,7 +179,11 @@ document.addEventListener("DOMContentLoaded", function(){
     content.style.position = 'absolute';
     content.style.width = '100%';
     content.style.border = "0"
-    content.style.backgroundImage = "url('images/background.png')";
+    content.style.backgroundImage = "url('images/Background.png')";
+    if (darkMode === true) {
+        content.style.backgroundImage = "url('images/Background-dark.png')";
+        
+       }
     content.style.backgroundSize = "cover";
     content.style.zIndex = "-1000"
     content.style.overflow = "hidden"
@@ -152,17 +192,6 @@ document.addEventListener("DOMContentLoaded", function(){
     content.style.top = `15px`
     windowElement.appendChild(content);
     
-    content.onload = function() {
-        const iframeDocument = content.contentDocument;
-        const iframeObject = iframeDocument.getElementById('iframe'); // Change 'object' to the ID of your object element
-        if (iframeObject) {
-            content.src = iframeObject.src;
-        }
-    };
-    
-    
-
-
     const resizeHandle = document.createElement('div');
     resizeHandle.classList.add('resize-handle');
     windowElement.appendChild(resizeHandle);
@@ -682,6 +711,9 @@ function growBox() {
     } else {
       box.style.width = "calc(75vw)";
       box.style.height = "calc(80vh)";
+      if (darkMode === true) {
+        box.style.background = "#000"
+      }
       defaultIcon.style.opacity = 0;
       closeIcon.style.opacity = 1;
       openGames()
@@ -717,11 +749,11 @@ function growBox() {
       openGames();
     });
   
-  
     box.appendChild(appsButton);
     box.appendChild(gamesButton);
     
-    }
-  }
-  
+}
+}
+
+
 });

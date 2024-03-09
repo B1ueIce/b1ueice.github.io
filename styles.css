@@ -11,6 +11,9 @@ body {
     overflow: hidden;
     flex-direction: column;
   }
+  body::before {
+    background-image: var(--background-image, url('Background.png'));
+  }
   *{
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
@@ -204,4 +207,11 @@ button img {
 }
 .close-button {
   right: 5px;
+}
+.dark-mode-toggle {
+  position: absolute;
+  font-size: calc(1vw);
+  color: rgb(0, 89, 190);
+  left: 0;
+  top: 0;
 }
