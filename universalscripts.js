@@ -1,3 +1,4 @@
+console.log("🔇🔊")
 const xor = {
     encode(str) {
         if (!str) return str;
@@ -321,7 +322,6 @@ function createWindow(title, url) {
         }
     }
     
-    // Listen for fullscreen change events
     document.addEventListener("fullscreenchange", adjustContent);
     document.addEventListener("webkitfullscreenchange", adjustContent);
     document.addEventListener("mozfullscreenchange", adjustContent);
