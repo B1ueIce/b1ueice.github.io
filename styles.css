@@ -2,7 +2,7 @@ body {
     margin: 0;
     height: 100vh;
     background-image: url('images/Background.png');
-    background-size: cover;
+    background-size: 100vw 100vh;
     background-position: center;
     display: flex;
     justify-content: center;
@@ -188,7 +188,8 @@ button img {
   cursor: nwse-resize;
 }
 .close-button,
-.fullscreen-button {
+.fullscreen-button,
+.mute-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -200,6 +201,9 @@ button img {
   height: 5px;
   width: 5px;
   color: #fff;
+}
+.mute-button {
+  right: 55px;
 }
 .fullscreen-button {
   right: 30px;

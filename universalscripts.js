@@ -1,4 +1,4 @@
-console.log("🔇🔊")
+
 const xor = {
     encode(str) {
         if (!str) return str;
@@ -29,7 +29,7 @@ const xor = {
 
 
 document.addEventListener("DOMContentLoaded", function(){
-   
+    var box = document.getElementById("Box");
 
     var darkMode = localStorage.getItem("DarkBg");
     var body = document.body;
@@ -38,7 +38,21 @@ document.addEventListener("DOMContentLoaded", function(){
     function setDarkMode(e) {
         darkMode = e;
         localStorage.setItem("DarkBg", e);
-    
+        var buttons = document.querySelectorAll(".dufhisdf");
+        buttons.forEach(function(button) {
+            if (darkMode === true) {
+                button.style.filter = "brightness(70%)";
+            } else {
+                button.style.filter = "brightness(100%)";
+            }
+        });
+
+        if (darkMode === true) {
+            box.style.background = "#000";
+        } else {
+            box.style.background = "linear-gradient(to bottom right, #1900ff, #B3E5FC)";
+        }
+
         if (e) {
             body.style.backgroundImage = "url('images/Background-dark.png')";
         } else {
@@ -49,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // Corrected condition for checking darkMode
     if (darkMode === "true") {
         setDarkMode(true);
-        darkModeSwitch.checked = true; // Update checkbox state
+        darkModeSwitch.checked = true; 
     } else {
         setDarkMode(false);
     }
@@ -104,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){
     buttonText.style.fontSize = "15px";
     buttonText.textContent = text;
     if (darkMode === true) {
-        button.style.filter = "brightness(50%)"
+        button.style.filter = "brightness(70%)"
         
        }
     button.appendChild(image);
@@ -337,13 +351,8 @@ function createWindow(title, url) {
             content.style.height = 'calc(100% - 25px)';
         }
     }
-    
+   
 }
-
-
-
-
-
 
   function clear() {
     var container = document.getElementById('Box');
@@ -385,7 +394,7 @@ function initializeIconContainerClick() {
         });
     });
 }
-var box = document.getElementById("Box");
+
 function openGames() {
     
      var searchContainer = document.createElement("div");
@@ -725,69 +734,69 @@ function openGames() {
 }
 initializeIconContainerClick()
 function growBox() {
-
     var defaultIcon = document.getElementById("defaultIcon");
     var closeIcon = document.getElementById("closeIcon");
   
-   
-  
     if (box.style.width === "calc(75vw)") {
-      box.style.width = "0";
-      box.style.height = "0";
-      defaultIcon.style.opacity = 1;
-      closeIcon.style.opacity = 0;
-      setTimeout(function(){
-        clear();
-        removeIfExists("appaspsbutton")
-        removeIfExists("gamememeasbutton")
-      },200)
-    
+        box.style.width = "0";
+        box.style.height = "0";
+        defaultIcon.style.opacity = 1;
+        closeIcon.style.opacity = 0;
+        if (darkMode === true) {
+            box.style.background = "#000";
+        } else {
+            box.style.background = "linear-gradient(to bottom right, #1900ff, #B3E5FC)";
+        }
+        setTimeout(function(){
+            clear();
+            removeIfExists("appaspsbutton");
+            removeIfExists("gamememeasbutton");
+        }, 200);
     } else {
-      box.style.width = "calc(75vw)";
-      box.style.height = "calc(80vh)";
-      if (darkMode === true) {
-        box.style.background = "#000"
-      }
-      defaultIcon.style.opacity = 0;
-      closeIcon.style.opacity = 1;
-      openGames()
-
+        box.style.width = "calc(75vw)";
+        box.style.height = "calc(80vh)";
+        if (darkMode === true) {
+            box.style.background = "#000";
+        } else {
+            box.style.background = "linear-gradient(to bottom right, #1900ff, #B3E5FC)";
+        }
+        defaultIcon.style.opacity = 0;
+        closeIcon.style.opacity = 1;
+        openGames();
     
-    var appsButton = document.createElement("button");
-    appsButton.style.position = "absolute";
-    appsButton.id = "appaspsbutton"
-    appsButton.style.top = "0";
-    appsButton.style.left = "0";
-    appsButton.style.width = "50px"; 
-    appsButton.style.height = "50px";
-    appsButton.style.backgroundSize = "contain";
-    appsButton.style.backgroundRepeat = "no-repeat";
-    appsButton.style.backgroundImage = "url(images/icons/apps2.png)";
-    appsButton.addEventListener("click", function() {
-      clear();
-      openApps();
-    });
-  
-    var gamesButton = document.createElement("button");
-    gamesButton.style.position = "absolute";
-    gamesButton.style.top = "0";
-    gamesButton.id = "gamememeasbutton"
-    gamesButton.style.left = "60px"; 
-    gamesButton.style.width = "50px";
-    gamesButton.style.height = "50px";
-    gamesButton.style.backgroundSize = "contain";
-    gamesButton.style.backgroundRepeat = "no-repeat";
-    gamesButton.style.backgroundImage = "url(images/icons/games.png)";
-    gamesButton.addEventListener("click", function() {
-      clear();
-      openGames();
-    });
-  
-    box.appendChild(appsButton);
-    box.appendChild(gamesButton);
+        var appsButton = document.createElement("button");
+        appsButton.style.position = "absolute";
+        appsButton.id = "appaspsbutton";
+        appsButton.style.top = "0";
+        appsButton.style.left = "0";
+        appsButton.style.width = "50px"; 
+        appsButton.style.height = "50px";
+        appsButton.style.backgroundSize = "contain";
+        appsButton.style.backgroundRepeat = "no-repeat";
+        appsButton.style.backgroundImage = "url(images/icons/apps2.png)";
+        appsButton.addEventListener("click", function() {
+            clear();
+            openApps();
+        });
     
+        var gamesButton = document.createElement("button");
+        gamesButton.style.position = "absolute";
+        gamesButton.style.top = "0";
+        gamesButton.id = "gamememeasbutton";
+        gamesButton.style.left = "60px"; 
+        gamesButton.style.width = "50px";
+        gamesButton.style.height = "50px";
+        gamesButton.style.backgroundSize = "contain";
+        gamesButton.style.backgroundRepeat = "no-repeat";
+        gamesButton.style.backgroundImage = "url(images/icons/games.png)";
+        gamesButton.addEventListener("click", function() {
+            clear();
+            openGames();
+        });
+    
+        box.appendChild(appsButton);
+        box.appendChild(gamesButton);
+    }
 }
-}
-
 
 });
