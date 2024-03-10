@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(){
             && linkUrl !== "https://sites.google.com/site/unblockedgame76/"
             && linkUrl !== "https://sites.google.com/site/classroom6x/"
             && linkUrl !== "https://sandboxels.r74n.com/"
-            && linkUrl !== ""
+            && linkUrl !== "https://slither.io"
             && linkUrl !== ""
             && linkUrl !== ""
             && linkUrl !== ""
