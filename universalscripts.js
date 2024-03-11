@@ -167,6 +167,12 @@ function createWindow(title, url) {
     windowElement.style.width = 'calc(60vw)';
     windowElement.style.height = 'calc(70vh)';
     windowElement.style.zIndex = zIndexCounter;
+    windowElement.style.backgroundImage = "url('images/Background.png')";
+    if (darkMode === true) {
+        windowElement.style.backgroundImage = "url('images/Background-dark.png')";
+
+    }
+    windowElement.style.backgroundSize = "cover";
 
    
   
@@ -213,15 +219,9 @@ function createWindow(title, url) {
     content.style.position = 'absolute';
     content.style.width = '100%';
     content.style.border = "0"
-    content.style.backgroundImage = "url('images/Background.png')";
-    if (darkMode === true) {
-        content.style.backgroundImage = "url('images/Background-dark.png')";
-
-    }
-    content.style.backgroundSize = "cover";
     content.style.zIndex = "-1000"
     content.style.overflow = "hidden"
-    content.style.height = `96%`;
+    content.style.height = `95.9%`;
     content.style.left = "-10px"
     content.style.top = `15px`
     windowElement.appendChild(content);
@@ -345,10 +345,11 @@ function createWindow(title, url) {
         const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
         if (fullscreenElement === windowElement) {
             content.style.width = '100%';
-            content.style.height = '100%';
+            content.style.height = '97%';
         } else {
-            content.style.width = 'calc(100% - 20px)';
-            content.style.height = 'calc(100%px)';
+            content.style.width = '100%';
+            content.style.height = `95%`;
+            content.style.top = `15px`
         }
     }
    
