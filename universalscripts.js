@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(){
           
           hours = hours % 12 || 12;
     
-          const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 2.0.0`;
+          const timeDisplay = `${hours}:${minutes}:${seconds} ${meridiem} 2.1.0`;
           
           document.getElementById('clock').innerHTML = timeDisplay;
  
@@ -106,16 +106,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     image.style.objectFit = "cover";
     var buttonText = document.createElement('span');
-    button.style.height = "85px";
-    button.style.width = "85px";
+    button.style.height = "calc(10vh)";
+    button.style.width = "calc(10vh)";
     button.style.clipPath = "circle(50% at 50% 50%)"
     button.style.borderRadius = "50%"
-    button.style.margin = "7px";
+    button.style.margin = "calc(1vh)";
     button.classList = 'dufhisdf'
     buttonText.style.zIndex = "10000";
     buttonText.style.display = "inline";
     buttonText.style.color = "#ffffff";
-    buttonText.style.fontSize = "15px";
+    buttonText.style.fontSize = "calc(1.7vh)";
     buttonText.textContent = text;
     if (darkMode === true) {
         button.style.filter = "brightness(70%)"
@@ -129,33 +129,28 @@ document.addEventListener("DOMContentLoaded", function(){
     button.addEventListener('click', function() {
         if (linkUrl !== "") {
             if (linkUrl !== "https://poki.com/" 
-            && linkUrl !== "https://www.crazygames.com/"
-            && linkUrl !== "https://demo.os-js.org/"
-            && linkUrl !== "https://play.geforcenow.com/mall/"
-            && linkUrl !== "https://play.google.com/store/games?hl=en_US&gl=US"
-            && linkUrl !== "https://vscode.dev/"
-            && linkUrl !== "https://sflix.to/"
-            && linkUrl !== "https://www.emugames.net/"
-            && linkUrl !== "https://music.youtube.com/"
-            && linkUrl !== "https://www.youtube.com/"
-            && linkUrl !== "https://sites.google.com/site/unblockedgame76/"
-            && linkUrl !== "https://sites.google.com/site/classroom6x/"
-            && linkUrl !== "https://sandboxels.r74n.com/"
-            && linkUrl !== "https://slither.io"
-            && linkUrl !== ""
-            && linkUrl !== ""
-            && linkUrl !== ""
-            && linkUrl !== ""
-      ) {
-        createWindow(text,linkUrl)
-      } else {
-        createWindow(text,"https://v2.sodium-5h8.pages.dev/sw/" + xor.encode(linkUrl))
-
-      }
-            
-    
+                && !linkUrl.includes("crazygames")
+                && linkUrl !== "https://demo.os-js.org/"
+                && linkUrl !== "https://play.geforcenow.com/mall/"
+                && linkUrl !== "https://play.google.com/store/games?hl=en_US&gl=US"
+                && linkUrl !== "https://vscode.dev/"
+                && linkUrl !== "https://sflix.to/"
+                && linkUrl !== "https://www.emugames.net/"
+                && linkUrl !== "https://music.youtube.com/"
+                && linkUrl !== "https://www.youtube.com/"
+                && linkUrl !== "https://sites.google.com/site/unblockedgame76/"
+                && linkUrl !== "https://sites.google.com/site/classroom6x/"
+                && linkUrl !== "https://sandboxels.r74n.com/"
+                && linkUrl !== "https://slither.io"
+                && linkUrl !== "https://orteil.dashnet.org/cookieclicker/"
+            ) {
+                createWindow(text, linkUrl);
+            } else {
+                createWindow(text, "https://howtomath.org/math/" + xor.encode(linkUrl));
+            }
         }
     });
+    
   }
   let zIndexCounter = 1003; 
 
@@ -348,7 +343,7 @@ function createWindow(title, url) {
             content.style.height = '100%';
         } else {
             content.style.width = 'calc(100% - 20px)';
-            content.style.height = 'calc(100% - 25px)';
+            content.style.height = 'calc(100%px)';
         }
     }
    
@@ -497,7 +492,7 @@ function openGames() {
          createButton("2048", "images/2048.png" , "https://play2048.co")
          createButton("2048 Cupcake", "", "https://0x0800.github.io/2048-CUPCAKES/")
          createButton("90071992 54740992", "images/20489.png" , "https://dmitrykuzmenko.github.io/2048/")
-         createButton("11", "images/204811.png" , "http://suki.ipb.ac.rs/11/")
+         createButton("11", "images/204811.png" , "https://2048-variations.net/en/eleven")
          createButton("590295810 358705700000", "images/20485.png" , "https://thereal23.github.io/590295810358705700000/")
          createButton("2048 Alphabet", "images/2048k.png" , "https://vdmitriyev.github.io/2048/")
          createButton("Mario 64", "images/Mario64.jpg" , "https://sm64webbackup--collintyes.repl.co/")
@@ -530,7 +525,7 @@ function openGames() {
          createButton("Sandboxels", "images/sandboxels.png", "https://sandboxels.r74n.com/")
          createButton("SANS FIGHT", "images/sans.png", "https://jcw87.github.io/c2-sans-fight/")
          createButton("Run 3", "images/run3.png", "https://sz-games.github.io/Games-2/run3/")
-         createButton("Cookie Clicker", "images/cookie.jpg" ,"https://mr-funkinguy.github.io/cookieclicker/")
+         createButton("Cookie Clicker", "images/cookie.jpg" ,"https://orteil.dashnet.org/cookieclicker/")
          createButton("Antimatter Dimensions", "images/ad.jpg", "https://ivark.github.io/AntimatterDimensions/")
          createButton("Clicker Heroes", "images/clickerheroes.jpg", "https://games-online.io/game/ClickerHeroes/")
          createButton("Idle Breakout", "images/idlebreak.png", "https://html-classic.itch.zone/html/9150519/index.html")
@@ -714,7 +709,6 @@ function openGames() {
         createButton("Railin", "images/railin.png", "https://railingames.github.io/")
         createButton("Noctura", "images/noc.webp", "https://noctura.tech")
         createButton("Turtle Games", "", "https://turtlegames.org/")
-        createButton("Ludicrous", "", "https://ludicrous.icu/")
             }, 200);
 
     box.appendChild(buttonsContainer);

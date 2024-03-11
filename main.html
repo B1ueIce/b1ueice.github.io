@@ -25,7 +25,12 @@
   <label for="dark-mode-switch">Dark Mode:</label>
   <input type="checkbox" id="dark-mode-switch">
 </div>
-
+<script language="JavaScript">
+  window.onbeforeunload = confirmExit;
+  function confirmExit() {
+      return "You have attempted to leave this page. Are you sure?";
+  }
+</script>
 <div class="center-text">Blue</div>
 <div class="left-text" id="clock"></div>
 <div class="right-text">If nothing works open a game then reload the page</div>
