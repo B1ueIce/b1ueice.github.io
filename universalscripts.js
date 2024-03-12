@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function(){
         if (linkUrl !== "") {
             if (linkUrl !== "https://poki.com/" 
                 && !linkUrl.includes("crazygames")
+                && !linkUrl.includes("coolmathgames")
                 && linkUrl !== "https://demo.os-js.org/"
                 && linkUrl !== "https://play.geforcenow.com/mall/"
                 && linkUrl !== "https://play.google.com/store/games?hl=en_US&gl=US"
@@ -345,7 +346,7 @@ function createWindow(title, url) {
         const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
         if (fullscreenElement === windowElement) {
             content.style.width = '100%';
-            content.style.height = '97%';
+            content.style.height = '97.5%';
         } else {
             content.style.width = '100%';
             content.style.height = `95%`;
