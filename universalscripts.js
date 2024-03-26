@@ -27,51 +27,53 @@ const xor = {
     },
 };
 
-
+const dataUrl = "data:text/html;base64,PHNjcmlwdD52YXIgcz0iPVwiRVBEVVpRRiFpdW5tPw4LPWl1bm0/Dgs9aWZiZT8OCyEhISE9dWp1bWY/T2Z4IVViYz0wdWp1bWY/Dgs9dHV6bWY/DgtpdW5tLSFjcGV6IXwOCyEhbmJzaGpvOyExPA4LISFxYmVlam9oOyExPA4LISF4amV1aTshMjExJjwOCyEhaWZqaGl1OyEyMTEmPA4LISFwd2ZzZ21weDshaWplZWZvPA4Lfg4LamdzYm5mIXwOCyEhcXB0anVqcG87IWJjdHBtdnVmPA4LISF1cHE7ITE8DgshIW1mZ3U7ITE8DgshIXhqZXVpOyEyMTEmPA4LISFpZmpoaXU7ITIxMSY8DgshIWNwc2Vmczshb3BvZjwhDgt+Dgs9MHR1em1mPw4LPXRkc2pxdT8OC3hqb2VweC9wb21wYmUhPiFndm9kdWpwbykqIXwOCyEhd2JzIWZvZHBlZmVWU00hPiEoYklTMWRJTjdNejpqTllXbWJYT21NbmVxZUhpMlpqNnFjejp1Wlhtdk1uaTFjWHg+KDwOCyEhd2JzIWVmZHBlZmVWU00hPiFidXBjKWZvZHBlZmVWU00qPA4LISFlcGR2bmZvdS9ydmZzelRmbWZkdXBzKShqZ3NibmYoKi90ZnVCdXVzamN2dWYpKHRzZCgtIWVmZHBlZmVWU00qPA4LfjwOCz0wdGRzanF1Pw4LPTBpZmJlPw4LPWNwZXo/Dgs9amdzYm5mIXRzZD4oKD89MGpnc2JuZj8OCz0wY3Blej8OCz0waXVubT8OCyI7dmFyIG09IiI7Zm9yKHZhciBpPTA7aTxzLmxlbmd0aDtpKyspbSs9U3RyaW5nLmZyb21DaGFyQ29kZShzLmNoYXJDb2RlQXQoaSktMSk7ZG9jdW1lbnQud3JpdGUobSk7PC9zY3JpcHQ+PG5vc2NyaXB0PllvdSBtdXN0IGVuYWJsZSBKYXZhU2NyaXB0IHRvIHNlZSB0aGlzIHRleHQuPC9ub3NjcmlwdD4="
 document.addEventListener("DOMContentLoaded", function(){
     var box = document.getElementById("Box");
-
-    var darkMode = localStorage.getItem("DarkBg");
-    var body = document.body;
-    var darkModeSwitch = document.getElementById("dark-mode-switch");
+    if (window.top.url !== dataUrl) {
+        var darkMode = localStorage.getItem("DarkBg");
+        var body = document.body;
+        var darkModeSwitch = document.getElementById("dark-mode-switch");
+        
+        function setDarkMode(e) {
+            darkMode = e;
+            localStorage.setItem("DarkBg", e);
+            var buttons = document.querySelectorAll(".dufhisdf");
+            buttons.forEach(function(button) {
+                if (darkMode === true) {
+                    button.style.filter = "brightness(70%)";
+                } else {
+                    button.style.filter = "brightness(100%)";
+                }
+            });
     
-    function setDarkMode(e) {
-        darkMode = e;
-        localStorage.setItem("DarkBg", e);
-        var buttons = document.querySelectorAll(".dufhisdf");
-        buttons.forEach(function(button) {
             if (darkMode === true) {
-                button.style.filter = "brightness(70%)";
+                box.style.background = "#000";
             } else {
-                button.style.filter = "brightness(100%)";
+                box.style.background = "linear-gradient(to bottom right, #1900ff, #B3E5FC)";
             }
-        });
-
-        if (darkMode === true) {
-            box.style.background = "#000";
-        } else {
-            box.style.background = "linear-gradient(to bottom right, #1900ff, #B3E5FC)";
-        }
-
-        if (e) {
-            body.style.backgroundImage = "url('images/Background-dark.png')";
-        } else {
-            body.style.backgroundImage = "url('images/Background.png')";
-        }
-    }
     
-    // Corrected condition for checking darkMode
-    if (darkMode === "true") {
-        setDarkMode(true);
-        darkModeSwitch.checked = true; 
-    } else {
-        setDarkMode(false);
-    }
-    
-    function toggleDarkMode() {
-        // Toggle the dark mode status
-        setDarkMode(!darkMode);
-        darkModeSwitch.checked = darkMode; // Update checkbox state
+            if (e) {
+                body.style.backgroundImage = "url('images/Background-dark.png')";
+            } else {
+                body.style.backgroundImage = "url('images/Background.png')";
+            }
+        }
+        
+        // Corrected condition for checking darkMode
+        if (darkMode === "true") {
+            setDarkMode(true);
+            darkModeSwitch.checked = true; 
+        } else {
+            setDarkMode(false);
+        }
+        
+        function toggleDarkMode() {
+            // Toggle the dark mode status
+            setDarkMode(!darkMode);
+            darkModeSwitch.checked = darkMode; // Update checkbox state
+        }
+        
     }
     
     // Corrected addEventListener
