@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function(){
             ) {
                 createWindow(text, linkUrl);
             } else {
-                createWindow(text, "https://howtomath.org/math/" + xor.encode(linkUrl));
+                createWindow(text, "https://intoabyss.org/classes/english/" + xor.encode(linkUrl));
             }
         }
     });
@@ -689,7 +689,7 @@ function openGames() {
         createButton("BruhProx", "images/uv.png", "https://bruhprox.pages.dev/")
         createButton("Zatoga", "images/zatoga.png", "https://zatoga.net/")
         createButton("z1g project", "images/z1g.png", "https://z1g-project.pages.dev/")
-        createButton("Utopia", "images/utopia.png", "https://howtomath.org/main.html")
+        createButton("Utopia", "images/utopia.png", "https://utopiaweb.org/")
         createButton("Neal.fun", "images/neal.jpg", "https://neal.fun")
         createButton("Paint", "", "https://jspaint.app/")
         createButton("Noclip", "images/noclip.png", "https://noclip.website/")
@@ -723,12 +723,10 @@ function openGames() {
         createButton("Eigth Grade", "data:image/png;base64,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", "https://69.eightgrade.com/")
         createButton("Incognito Proxy", "images/incog.jpg", "https://unblocker.netlify.app/")
         createButton("monkey3 three","images/3.jpg", "https://monkey3three.github.io/unblocked88.github.io/index2.html")
-        createButton("selenite", "", "https://projects.blueshadows.cl/")
+        createButton("selenite", "", "https://selenite.cc/")
         createButton("BCHS", "images/black.png", "https://bchs.pages.dev/")
         createButton("Crazy Games", "images/crazy.png", "https://www.crazygames.com/")
         createButton("Poki", "images/poki.png", "https://poki.com/")
-        createButton("Railin", "images/railin.png", "https://railingames.github.io/")
-        createButton("Noctura", "images/noc.webp", "https://noctura.tech")
         createButton("Turtle Games", "", "https://turtlegames.org/")
         createButton("Chess.com", "", "https://www.chess.com/")
         createButton("Discord", "images/discord.png", "https://discord.com/app")
